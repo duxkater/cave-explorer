@@ -1,0 +1,8 @@
+res://src/game.tscn
+res://resources/tiles/wall.tres
+res://resources/tiles/grass.tres
+res://src/inputs/pause_input_handler.gd
+res://src/inputs/game_over_input_handler.gd
+res://src/entities/entity.gd
+res://src/game.gd
+res://src/interface/game_over_screen.gd

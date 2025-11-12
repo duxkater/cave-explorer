@@ -1,0 +1,167 @@
+[gd_scene load_steps=16 format=3 uid="uid://dgb6onrfxtuhk"]
+
+[ext_resource type="Script" uid="uid://bwwak0n1b8noj" path="res://src/game.gd" id="1_7uq6d"]
+[ext_resource type="Script" uid="uid://idrcwqwvwr3s" path="res://src/map/map.gd" id="2_y2hwx"]
+[ext_resource type="Script" uid="uid://cjg5cb1yrne0d" path="res://src/map/field_of_view.gd" id="3_pk08u"]
+[ext_resource type="Script" uid="uid://b4tqdms8yfu1c" path="res://src/inputs/input_handler.gd" id="4_kc8ui"]
+[ext_resource type="Script" uid="uid://c0ps0q6togunm" path="res://src/inputs/main_game_input_handler.gd" id="5_bs6l1"]
+[ext_resource type="Script" uid="uid://bv0qx6vui02jn" path="res://src/inputs/pause_input_handler.gd" id="6_4bcji"]
+[ext_resource type="Script" uid="uid://bah225a4ecc4n" path="res://src/interface/main_menu.gd" id="6_cdx1q"]
+[ext_resource type="Texture2D" uid="uid://dvpbwcoxy1j6n" path="res://assets/images/dng.webp" id="6_pk08u"]
+[ext_resource type="Script" uid="uid://b2c6k35hvv8p" path="res://src/inputs/game_over_input_handler.gd" id="6_y2hwx"]
+[ext_resource type="Script" uid="uid://dfirky3dj86t3" path="res://src/inputs/history_viewer_input_handler.gd" id="7_qiocs"]
+[ext_resource type="FontFile" uid="uid://m45hvm3d0dl3" path="res://assets/fonts/Kenney Pixel.ttf" id="7_wqvko"]
+[ext_resource type="Script" uid="uid://db33b5i25wkpg" path="res://src/interface/game_over_screen.gd" id="12_qiocs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cdx1q"]
+font = ExtResource("7_wqvko")
+font_size = 50
+font_color = Color(1, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_y2hwx"]
+offsets = PackedFloat32Array(0.4107143, 0.6666667, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qiocs"]
+gradient = SubResource("Gradient_y2hwx")
+
+[node name="Game" type="Node"]
+script = ExtResource("1_7uq6d")
+
+[node name="Map" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_y2hwx")
+
+[node name="Tiles" type="Node2D" parent="Map"]
+
+[node name="Entities" type="Node2D" parent="Map"]
+
+[node name="FieldOfView" type="Node" parent="Map"]
+script = ExtResource("3_pk08u")
+
+[node name="Interface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InputHandler" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_kc8ui")
+
+[node name="MainGameInputHandler" type="Node" parent="InputHandler"]
+script = ExtResource("5_bs6l1")
+
+[node name="GameOverInputHandler" type="Node" parent="InputHandler"]
+script = ExtResource("6_y2hwx")
+
+[node name="HistoryViewerInputHandler" type="Node" parent="InputHandler"]
+script = ExtResource("7_qiocs")
+
+[node name="PauseInputHandler" type="Node" parent="InputHandler"]
+script = ExtResource("6_4bcji")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("6_cdx1q")
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_pk08u")
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -19.5
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sewers of Thrakonia"
+label_settings = SubResource("LabelSettings_cdx1q")
+
+[node name="NewGameButton" type="Button" parent="MainMenu/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_wqvko")
+theme_override_font_sizes/font_size = 32
+text = "New game"
+
+[node name="ResumeButton" type="Button" parent="MainMenu/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_wqvko")
+theme_override_font_sizes/font_size = 32
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="MainMenu/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_wqvko")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("12_qiocs")
+
+[node name="TextureRect" type="TextureRect" parent="GameOverScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_qiocs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen/VBoxContainer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="GameOverScreen/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("7_wqvko")
+theme_override_font_sizes/font_size = 50
+text = "GAME OVER"
+
+[node name="BackTOMainMenu" type="Button" parent="GameOverScreen/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_wqvko")
+theme_override_font_sizes/font_size = 32
+text = "Back to main menu"
+
+[connection signal="button_down" from="MainMenu/VBoxContainer/CenterContainer/VBoxContainer/NewGameButton" to="MainMenu" method="_on_new_game_button_button_down"]
+[connection signal="button_down" from="MainMenu/VBoxContainer/CenterContainer/VBoxContainer/QuitButton" to="MainMenu" method="_on_quit_button_button_down"]
+[connection signal="button_down" from="GameOverScreen/VBoxContainer/CenterContainer/VBoxContainer/BackTOMainMenu" to="GameOverScreen" method="_on_back_to_main_menu_button_down"]
