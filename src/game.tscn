@@ -70,7 +70,6 @@ zoom = Vector2(2, 2)
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-visible = false
 script = ExtResource("6_cdx1q")
 
 [node name="TextureRect" type="TextureRect" parent="MainMenu"]

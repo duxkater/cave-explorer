@@ -25,10 +25,10 @@ var ai_component: BaseAIComponent
 # var consumable_component: ConsumableComponent
 # var inventory_component: InventoryComponent
 
-func _init(_map: Map, key: String = "", position = null) -> void:
+func _init(_map: Map, key: String = "", _position = null) -> void:
 	centered = false
-	if position:
-		grid_position = position
+	if _position:
+		grid_position = _position
 	self.map = _map
 	set_entity_type(key)
 

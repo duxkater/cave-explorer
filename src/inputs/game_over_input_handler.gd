@@ -9,5 +9,5 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func get_action(player: Entity) -> Action:
+func get_action(_player: Entity) -> Action:
 	return null

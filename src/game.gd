@@ -9,7 +9,6 @@ extends Node
 
 func _ready() -> void:
 	input_handler.transition_to(InputHandler.InputHandlers.PAUSE)
-	pass
 
 func new_game():
 	input_handler.transition_to(InputHandler.InputHandlers.MAIN_GAME)
