@@ -1,0 +1,16 @@
+res://src/game.tscn
+res://resources/tiles/wall.tres
+res://resources/tiles/grass.tres
+res://src/inputs/input_handler.gd
+res://src/interface/logs.gd
+res://resources/interface/log_label_settings.tres
+res://src/interface/message.gd
+res://src/entities/components/components/actors/fighter_component.gd
+res://src/entities/entity.gd
+res://src/game.gd
+res://src/map/dungeon_generator.gd
+res://src/actions/melee.gd
+res://src/actions/move.gd
+res://src/map/map.gd
+res://resources/actors/player.tres
+res://src/interface/hp_display.gd

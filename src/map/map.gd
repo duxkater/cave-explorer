@@ -16,7 +16,7 @@ const entity_pathfinding_weight = 10.0
 func generate(_player) -> void:
 	player = _player
 	player.map = self
-	dungeon_generator = Dungeon_generator.new(width, height, player, self)
+	dungeon_generator = Dungeon_generator.new(width, height, player, self, game)
 	var dungeon = dungeon_generator.generate()
 	for tile in dungeon.tiles:
 		tiles.add_child(tile)

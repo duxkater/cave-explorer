@@ -1,10 +1,13 @@
 class_name FighterComponent
 extends Component
 
+signal hp_changed(hp, max_hp)
+
 var max_hp: int
 var hp: int:
 	set(value):
 		hp = clampi(value, 0, max_hp)
+		hp_changed.emit(hp, max_hp)
 		if hp <= 0:
 			var die_silently := false
 			if not is_inside_tree():
@@ -37,8 +40,7 @@ func die(log_message := true) -> void:
 		death_message_color = LoggerColors.ENEMY_DIE
 	
 	if log_message:
-		print(death_message)
-		# MessageLog.send_message(death_message, death_message_color)
+		entity.game.get_log_manager().add_message(death_message, death_message_color)
 	entity.texture = death_texture
 	entity.modulate = death_color
 	if entity.ai_component:

@@ -13,12 +13,14 @@ var player: Entity
 var max_monsters_per_room: int = 2
 var max_items_per_room: int = 2
 var map: Map
+var game
 
-func _init(_width: int, _height: int, _player: Entity, _map: Map):
+func _init(_width: int, _height: int, _player: Entity, _map: Map, _game):
 	self.player = _player
 	self.width = _width
 	self.height = _height
 	self.map = _map
+	self.game = _game
 	# fill with walls, to carve in
 	for y in height:
 		for x in width:
@@ -105,7 +107,8 @@ func placeEntities(room: Rect2i):
 		
 		if can_place:
 			var new_entity: Entity
-			new_entity = Entity.new(map, "goblin", new_entity_position)
+			print(self.game)
+			new_entity = Entity.new(map, game, "goblin", new_entity_position)
 			entities.append(new_entity)
 
 func grid_to_index(grid_position: Vector2i) -> int:

@@ -11,7 +11,7 @@ func perform() -> bool:
 	if not target:
 		if entity.name == "Player":
 			print("nothing to attack")
-			# MessageLog.send_message("Nothing to attack.", GameColors.IMPOSSIBLE)
+			entity.game.get_log_manager().add_message("Nothing to attack.", LoggerColors.IMPOSSIBLE)
 		return false
 
 	var damage: int = entity.fighter_component.power - target.fighter_component.defense
@@ -26,6 +26,5 @@ func perform() -> bool:
 		target.fighter_component.take_damage(damage)
 	else:
 		attack_description += " but does no damage."
-	print(attack_description)
-	# MessageLog.send_message(attack_description, attack_color)
+	entity.game.get_log_manager().add_message(attack_description, attack_color)
 	return true

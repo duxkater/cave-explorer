@@ -7,6 +7,7 @@ const entity_types = {
 	"goblin": "res://resources/actors/goblin.tres"
 }
 enum EntityType {CORPSE, ITEM, ACTOR}
+
 var grid_position: Vector2i:
 	set(value):
 		grid_position = value
@@ -15,6 +16,8 @@ var _definition: EntityDefinition
 var entity_name: String
 var blocks_movement: bool
 var map: Map
+var game
+
 var type: EntityType:
 	set(value):
 		type = value
@@ -25,8 +28,9 @@ var ai_component: BaseAIComponent
 # var consumable_component: ConsumableComponent
 # var inventory_component: InventoryComponent
 
-func _init(_map: Map, key: String = "", _position = null) -> void:
+func _init(_map: Map, _game, key: String = "", _position = null) -> void:
 	centered = false
+	game = _game
 	if _position:
 		grid_position = _position
 	self.map = _map

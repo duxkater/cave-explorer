@@ -25,6 +25,5 @@ func transition_to(input_handler: InputHandlers) -> void:
 		return
 	if current_input_handler != null:
 		current_input_handler.exit()
-	print(current_input_handler, input_handler_nodes[input_handler])
 	current_input_handler = input_handler_nodes[input_handler]
 	current_input_handler.enter()

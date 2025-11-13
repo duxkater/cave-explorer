@@ -6,17 +6,21 @@ extends Node
 @onready var input_handler: InputHandler = $InputHandler
 @onready var camera: Camera2D = $Camera2D
 @onready var game_over_screen = %GameOverScreen
+@onready var log_manager = %LogsContainer
+@onready var HpDisplay = $Interface/CanvasLayer/VBoxContainer/UIContainer/Stats/HpDisplay
 
 func _ready() -> void:
 	input_handler.transition_to(InputHandler.InputHandlers.PAUSE)
 
 func new_game():
 	input_handler.transition_to(InputHandler.InputHandlers.MAIN_GAME)
-	player = Entity.new(null, "player")
+	player = Entity.new(null, self, "player")
 	entities.add_child(player)
 	remove_child(camera)
 	player.add_child(camera)
 	map.generate(player)
+	HpDisplay.initialize(player)
+	log_manager.add_message("Hello and welcome, adventurer, to yet another dungeon!", LoggerColors.WELCOME_TEXT)
 
 func _physics_process(_delta: float) -> void:
 	var action: Action = await input_handler.get_action(player)
@@ -33,3 +37,6 @@ func _handle_enemy_turns() -> void:
 func game_over():
 	input_handler.transition_to(InputHandler.InputHandlers.GAME_OVER)
 	game_over_screen.show()
+
+func get_log_manager():
+	return log_manager
