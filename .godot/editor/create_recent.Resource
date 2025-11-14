@@ -1,4 +1,4 @@
+TileDefinition
 LabelSettings
 EntityDefinition
 AtlasTexture
-TileDefinition

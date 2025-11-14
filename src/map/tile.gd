@@ -3,7 +3,11 @@ extends Sprite2D
 
 const tile_types = {
 	"wall": preload("res://resources/tiles/wall.tres"),
-	"grass": preload("res://resources/tiles/grass.tres")
+	"cracked_wall": preload("res://resources/tiles/cracked_wall.tres"),
+	"empty": preload("res://resources/tiles/empty.tres"),
+	"grass": preload("res://resources/tiles/grass.tres"),
+	"high_grass": preload("res://resources/tiles/high_grass.tres"),
+	"rock": preload("res://resources/tiles/rock.tres")
 }
 
 var _definition: TileDefinition

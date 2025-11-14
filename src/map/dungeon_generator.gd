@@ -24,7 +24,10 @@ func _init(_width: int, _height: int, _player: Entity, _map: Map, _game):
 	# fill with walls, to carve in
 	for y in height:
 		for x in width:
-			tiles.append(Tile.new(Vector2i(x, y), "wall"))
+			var tile_type_wall = "wall"
+			if _rng.randf() > 0.8:
+				tile_type_wall = "cracked_wall"
+			tiles.append(Tile.new(Vector2i(x, y),tile_type_wall))
 
 func generate():
 	generateLayout()
@@ -73,7 +76,16 @@ func carve_room(room):
 
 func carve_tile(x: int, y: int):
 	var tile = get_tile(Vector2i(x, y))
-	tile.set_tile_type("grass")
+	if _rng.randf() < 0.6:
+		tile.set_tile_type("empty")
+	else:
+		if _rng.randf() < 0.5:
+			tile.set_tile_type("grass")
+		else:
+			if _rng.randf() < 0.9:
+				tile.set_tile_type("high_grass")
+			else:
+				tile.set_tile_type("rock")
 
 func get_tile(grid_position: Vector2i) -> Tile:
 	var tile_index: int = grid_to_index(grid_position)
@@ -107,7 +119,6 @@ func placeEntities(room: Rect2i):
 		
 		if can_place:
 			var new_entity: Entity
-			print(self.game)
 			new_entity = Entity.new(map, game, "goblin", new_entity_position)
 			entities.append(new_entity)
 
