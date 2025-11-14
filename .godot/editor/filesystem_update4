@@ -1,0 +1,9 @@
+res://src/game.tscn
+res://resources/tiles/wall.tres
+res://resources/tiles/cracked_wall.tres
+res://resources/tiles/empty.tres
+res://resources/tiles/grass.tres
+res://resources/tiles/high_grass.tres
+res://resources/tiles/rock.tres
+res://src/interface/mouseover_checker.gd
+res://src/game.gd

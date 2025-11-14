@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dgb6onrfxtuhk"]
+[gd_scene load_steps=19 format=3 uid="uid://dgb6onrfxtuhk"]
 
 [ext_resource type="Script" uid="uid://bwwak0n1b8noj" path="res://src/game.gd" id="1_7uq6d"]
 [ext_resource type="Script" uid="uid://idrcwqwvwr3s" path="res://src/map/map.gd" id="2_y2hwx"]
 [ext_resource type="Script" uid="uid://cjg5cb1yrne0d" path="res://src/map/field_of_view.gd" id="3_pk08u"]
+[ext_resource type="Script" uid="uid://drr5s1t4mb2pv" path="res://src/interface/mouseover_checker.gd" id="4_a7soy"]
 [ext_resource type="Script" uid="uid://d0gnplgrwutaw" path="res://src/interface/hp_display.gd" id="4_g3j30"]
 [ext_resource type="Script" uid="uid://b4tqdms8yfu1c" path="res://src/inputs/input_handler.gd" id="4_kc8ui"]
 [ext_resource type="Script" uid="uid://0leisxr2qu2o" path="res://src/interface/logs.gd" id="4_xdrfk"]
@@ -43,6 +44,9 @@ script = ExtResource("2_y2hwx")
 [node name="FieldOfView" type="Node" parent="Map"]
 script = ExtResource("3_pk08u")
 
+[node name="MouseoverChecker" type="Node2D" parent="Map"]
+script = ExtResource("4_a7soy")
+
 [node name="Interface" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -74,7 +78,10 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HpDisplay" type="MarginContainer" parent="Interface/CanvasLayer/VBoxContainer/UIContainer/Stats"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/CanvasLayer/VBoxContainer/UIContainer/Stats"]
+layout_mode = 2
+
+[node name="HpDisplay" type="MarginContainer" parent="Interface/CanvasLayer/VBoxContainer/UIContainer/Stats/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
@@ -82,13 +89,16 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 script = ExtResource("4_g3j30")
 
-[node name="HpBar" type="ProgressBar" parent="Interface/CanvasLayer/VBoxContainer/UIContainer/Stats/HpDisplay"]
+[node name="HpBar" type="ProgressBar" parent="Interface/CanvasLayer/VBoxContainer/UIContainer/Stats/VBoxContainer/HpDisplay"]
 layout_mode = 2
 size_flags_stretch_ratio = 5.8
 theme_override_colors/font_color = Color(0.10539121, 0.45765668, 0, 1)
 show_percentage = false
 
-[node name="HpLabel" type="Label" parent="Interface/CanvasLayer/VBoxContainer/UIContainer/Stats/HpDisplay"]
+[node name="HpLabel" type="Label" parent="Interface/CanvasLayer/VBoxContainer/UIContainer/Stats/VBoxContainer/HpDisplay"]
+layout_mode = 2
+
+[node name="MouseoverLabel" type="Label" parent="Interface/CanvasLayer/VBoxContainer/UIContainer/Stats/VBoxContainer"]
 layout_mode = 2
 
 [node name="Logs" type="PanelContainer" parent="Interface/CanvasLayer/VBoxContainer/UIContainer"]
@@ -219,6 +229,7 @@ theme_override_fonts/font = ExtResource("7_wqvko")
 theme_override_font_sizes/font_size = 32
 text = "Back to main menu"
 
+[connection signal="entities_focussed" from="Map/MouseoverChecker" to="Interface/CanvasLayer/VBoxContainer/UIContainer/Stats/VBoxContainer/MouseoverLabel" method="set_text"]
 [connection signal="button_down" from="MainMenu/VBoxContainer/CenterContainer/VBoxContainer/NewGameButton" to="MainMenu" method="_on_new_game_button_button_down"]
 [connection signal="button_down" from="MainMenu/VBoxContainer/CenterContainer/VBoxContainer/QuitButton" to="MainMenu" method="_on_quit_button_button_down"]
 [connection signal="button_down" from="GameOverScreen/VBoxContainer/CenterContainer/VBoxContainer/BackTOMainMenu" to="GameOverScreen" method="_on_back_to_main_menu_button_down"]

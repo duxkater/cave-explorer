@@ -7,7 +7,7 @@ extends Node
 @onready var camera: Camera2D = $Camera2D
 @onready var game_over_screen = %GameOverScreen
 @onready var log_manager = %LogsContainer
-@onready var HpDisplay = $Interface/CanvasLayer/VBoxContainer/UIContainer/Stats/HpDisplay
+@onready var HpDisplay = $Interface/CanvasLayer/VBoxContainer/UIContainer/Stats/VBoxContainer/HpDisplay
 
 func _ready() -> void:
 	input_handler.transition_to(InputHandler.InputHandlers.PAUSE)

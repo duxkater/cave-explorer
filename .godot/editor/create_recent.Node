@@ -1,7 +1,8 @@
 VBoxContainer
+Label
+Node2D
 ScrollContainer
 CanvasLayer
-Label
 MarginContainer
 PanelContainer
 ProgressBar
@@ -11,4 +12,3 @@ SubViewport
 SubViewportContainer
 Container
 Button
-CenterContainer
