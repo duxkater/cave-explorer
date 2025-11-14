@@ -34,7 +34,8 @@ func get_tile(grid_position: Vector2i) -> Tile:
 	var tile_index: int = grid_to_index(grid_position)
 	if tile_index == -1:
 		return null
-	
+	if tiles.get_children().size() == 0:
+		return null
 	return tiles.get_child(tile_index)
 
 func grid_to_index(grid_position: Vector2i) -> int:

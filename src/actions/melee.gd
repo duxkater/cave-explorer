@@ -23,8 +23,9 @@ func perform() -> bool:
 	var attack_description: String = "%s attacks %s" % [entity.get_entity_name(), target.get_entity_name()]
 	if damage > 0:
 		attack_description += " for %d hit points." % damage
+		entity.game.get_log_manager().add_message(attack_description, attack_color)
 		target.fighter_component.take_damage(damage)
 	else:
 		attack_description += " but does no damage."
-	entity.game.get_log_manager().add_message(attack_description, attack_color)
+		entity.game.get_log_manager().add_message(attack_description, attack_color)
 	return true

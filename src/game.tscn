@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dgb6onrfxtuhk"]
+[gd_scene load_steps=21 format=3 uid="uid://dgb6onrfxtuhk"]
 
 [ext_resource type="Script" uid="uid://bwwak0n1b8noj" path="res://src/game.gd" id="1_7uq6d"]
 [ext_resource type="Script" uid="uid://idrcwqwvwr3s" path="res://src/map/map.gd" id="2_y2hwx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://d0gnplgrwutaw" path="res://src/interface/hp_display.gd" id="4_g3j30"]
 [ext_resource type="Script" uid="uid://b4tqdms8yfu1c" path="res://src/inputs/input_handler.gd" id="4_kc8ui"]
 [ext_resource type="Script" uid="uid://0leisxr2qu2o" path="res://src/interface/logs.gd" id="4_xdrfk"]
+[ext_resource type="Shader" uid="uid://rvs0f5qtjh8x" path="res://src/shaders/blur.gdshader" id="5_aikvj"]
 [ext_resource type="Script" uid="uid://c0ps0q6togunm" path="res://src/inputs/main_game_input_handler.gd" id="5_bs6l1"]
 [ext_resource type="Script" uid="uid://bv0qx6vui02jn" path="res://src/inputs/pause_input_handler.gd" id="6_4bcji"]
 [ext_resource type="Script" uid="uid://bah225a4ecc4n" path="res://src/interface/main_menu.gd" id="6_cdx1q"]
@@ -15,6 +16,10 @@
 [ext_resource type="Script" uid="uid://dfirky3dj86t3" path="res://src/inputs/history_viewer_input_handler.gd" id="7_qiocs"]
 [ext_resource type="FontFile" uid="uid://m45hvm3d0dl3" path="res://assets/fonts/Kenney Pixel.ttf" id="7_wqvko"]
 [ext_resource type="Script" uid="uid://db33b5i25wkpg" path="res://src/interface/game_over_screen.gd" id="12_qiocs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ns0lu"]
+shader = ExtResource("5_aikvj")
+shader_parameter/amount = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_cdx1q"]
 font = ExtResource("7_wqvko")
@@ -71,8 +76,10 @@ size_flags_stretch_ratio = 5.0
 color = Color(1, 1, 1, 0)
 
 [node name="UIContainer" type="HBoxContainer" parent="Interface/CanvasLayer/VBoxContainer"]
+material = SubResource("ShaderMaterial_ns0lu")
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 5
 
 [node name="Stats" type="PanelContainer" parent="Interface/CanvasLayer/VBoxContainer/UIContainer"]
 layout_mode = 2
