@@ -6,5 +6,9 @@ res://resources/tiles/grass.tres
 res://resources/tiles/high_grass.tres
 res://resources/tiles/rock.tres
 res://src/shaders/blur.gdshader
-res://src/map/map.gd
+res://resources/tiles/cracked_floor.tres
+res://src/map/tile.gd
+res://src/map/dungeon_generator.gd
+res://src/entities/entity.gd
+res://src/game.gd
 res://src/actions/melee.gd

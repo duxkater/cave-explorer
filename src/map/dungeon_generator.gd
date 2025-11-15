@@ -85,7 +85,10 @@ func carve_tile(x: int, y: int):
 			if _rng.randf() < 0.9:
 				tile.set_tile_type("high_grass")
 			else:
-				tile.set_tile_type("rock")
+				if (_rng.randf() < 0.5):
+					tile.set_tile_type("rock")
+				else:
+					tile.set_tile_type("cracked_floor")
 
 func get_tile(grid_position: Vector2i) -> Tile:
 	var tile_index: int = grid_to_index(grid_position)

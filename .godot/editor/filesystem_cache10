@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1763125627
+::res://::1763220822
 icon.svg::CompressedTexture2D::3185357980559951924::1762592144::1762592148::1::::<><><>0<>0<>09581cd2258d7cca075ce8368ae27ffe<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://assets/::1762592302
 ::res://assets/fonts/::1762592473
@@ -15,21 +15,21 @@ player.tres::Resource/EntityDefinition::8084018334941973200::1763070952::0::1:::
 ::res://resources/interface/::1763066516
 log_label_settings.tres::LabelSettings::3875772723875353608::1763066516::0::1::::<><><>0<>0<><>::uid://m45hvm3d0dl3::::res://assets/fonts/Kenney Pixel.ttf
 ::res://resources/items/::1762592324
-::res://resources/tiles/::1763112542
-cracked_wall.tres::Resource/TileDefinition::4566166478957007127::1763112542::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
-empty.tres::Resource/TileDefinition::4377132683114616646::1763112542::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
-grass.tres::Resource/TileDefinition::7428416619016152688::1763112542::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
-high_grass.tres::Resource/TileDefinition::5195441081555919103::1763112542::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
-rock.tres::Resource/TileDefinition::4820089199441366078::1763112542::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
-wall.tres::Resource/TileDefinition::2132884153602227666::1763112542::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
-::res://src/::1763113418
+::res://resources/tiles/::1763125879
+cracked_wall.tres::Resource/TileDefinition::4566166478957007127::1763125879::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
+empty.tres::Resource/TileDefinition::4377132683114616646::1763125879::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
+grass.tres::Resource/TileDefinition::7428416619016152688::1763125879::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
+high_grass.tres::Resource/TileDefinition::5195441081555919103::1763125879::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
+rock.tres::Resource/TileDefinition::4820089199441366078::1763125879::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
+wall.tres::Resource/TileDefinition::2132884153602227666::1763125879::0::1::::<><><>0<>0<><>::uid://yplcmkp8ofjq::::res://src/map/tile_definition.gd<>uid://dbjtqcsj4aiii::::res://assets/images/tileset.png
+::res://src/::1763139653
 game.gd::GDScript::3976010746608358449::1763113355::0::1::::<>Node<><>0<>0<><>::
-game.tscn::PackedScene::7584367427875896112::1763113418::0::1::::<><><>0<>0<><>::uid://bwwak0n1b8noj::::res://src/game.gd<>uid://idrcwqwvwr3s::::res://src/map/map.gd<>uid://cjg5cb1yrne0d::::res://src/map/field_of_view.gd<>uid://drr5s1t4mb2pv::::res://src/interface/mouseover_checker.gd<>uid://d0gnplgrwutaw::::res://src/interface/hp_display.gd<>uid://b4tqdms8yfu1c::::res://src/inputs/input_handler.gd<>uid://0leisxr2qu2o::::res://src/interface/logs.gd<>uid://c0ps0q6togunm::::res://src/inputs/main_game_input_handler.gd<>uid://bv0qx6vui02jn::::res://src/inputs/pause_input_handler.gd<>uid://bah225a4ecc4n::::res://src/interface/main_menu.gd<>uid://dvpbwcoxy1j6n::::res://assets/images/dng.webp<>uid://b2c6k35hvv8p::::res://src/inputs/game_over_input_handler.gd<>uid://dfirky3dj86t3::::res://src/inputs/history_viewer_input_handler.gd<>uid://m45hvm3d0dl3::::res://assets/fonts/Kenney Pixel.ttf<>uid://db33b5i25wkpg::::res://src/interface/game_over_screen.gd
-::res://src/actions/::1763070125
+game.tscn::PackedScene::7584367427875896112::1763139653::0::1::::<><><>0<>0<><>::uid://bwwak0n1b8noj::::res://src/game.gd<>uid://idrcwqwvwr3s::::res://src/map/map.gd<>uid://cjg5cb1yrne0d::::res://src/map/field_of_view.gd<>uid://drr5s1t4mb2pv::::res://src/interface/mouseover_checker.gd<>uid://d0gnplgrwutaw::::res://src/interface/hp_display.gd<>uid://b4tqdms8yfu1c::::res://src/inputs/input_handler.gd<>uid://0leisxr2qu2o::::res://src/interface/logs.gd<>uid://rvs0f5qtjh8x::::res://src/shaders/blur.gdshader<>uid://c0ps0q6togunm::::res://src/inputs/main_game_input_handler.gd<>uid://bv0qx6vui02jn::::res://src/inputs/pause_input_handler.gd<>uid://bah225a4ecc4n::::res://src/interface/main_menu.gd<>uid://dvpbwcoxy1j6n::::res://assets/images/dng.webp<>uid://b2c6k35hvv8p::::res://src/inputs/game_over_input_handler.gd<>uid://dfirky3dj86t3::::res://src/inputs/history_viewer_input_handler.gd<>uid://m45hvm3d0dl3::::res://assets/fonts/Kenney Pixel.ttf<>uid://db33b5i25wkpg::::res://src/interface/game_over_screen.gd
+::res://src/actions/::1763139653
 action.gd::GDScript::1357663766759575805::1762885165::0::1::::Action<>RefCounted<><>0<>0<><>::
 action_with_direction.gd::GDScript::4335902667843977621::1762982440::0::1::::ActionWithDirection<>Action<><>0<>0<><>::
 bump.gd::GDScript::8824192760782320484::1762880143::0::1::::BumpAction<>ActionWithDirection<><>0<>0<><>::
-melee.gd::GDScript::5832427015895637795::1763069988::0::1::::MeleeAction<>Action<><>0<>0<><>::
+melee.gd::GDScript::5832427015895637795::1763139653::0::1::::MeleeAction<>Action<><>0<>0<><>::
 move.gd::GDScript::5168376235430170367::1763070125::0::1::::MovementAction<>Action<><>0<>0<><>::
 wait.gd::GDScript::3874188692430631448::1762874317::0::1::::WaitAction<>Action<><>0<>0<><>::
 ::res://src/entities/::1763069715
@@ -61,11 +61,13 @@ logs.gd::GDScript::1777687382327712516::1763066815::0::1::::LogManager<>ScrollCo
 main_menu.gd::GDScript::2402560480235205087::1762815237::0::1::::<>CanvasLayer<><>0<>0<><>::
 message.gd::GDScript::3191494414546079605::1763066537::0::1::::Message<>Label<><>0<>0<><>::
 mouseover_checker.gd::GDScript::8389421865110273959::1763112700::0::1::::<>Node2D<><>0<>0<><>::
-::res://src/map/::1763111303
+::res://src/map/::1763139319
 dungeon_generator.gd::GDScript::5096599967132148752::1763111303::0::1::::Dungeon_generator<>Node<><>0<>0<><>::
 field_of_view.gd::GDScript::5418752401825605213::1762689495::0::1::::FieldOfView<>Node<><>0<>0<><>::
-map.gd::GDScript::568740824090379598::1763070900::0::1::::Map<>Node2D<><>0<>0<><>::
+map.gd::GDScript::568740824090379598::1763139319::0::1::::Map<>Node2D<><>0<>0<><>::
 tile.gd::GDScript::1067943053396105351::1763111019::0::1::::Tile<>Sprite2D<><>0<>0<><>::
 tile_definition.gd::GDScript::1716170018586347446::1762596813::0::1::::TileDefinition<>Resource<><>0<>0<><>::
+::res://src/shaders/::1763126260
+blur.gdshader::Shader::1237700135112827917::1763126260::0::1::::<><><>0<>0<><>::
 ::res://src/utils/::1762852156
 grid.gd::GDScript::5750961859095899152::1762603428::0::1::::Grid<>Object<><>0<>0<><>::

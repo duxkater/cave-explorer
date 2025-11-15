@@ -7,6 +7,7 @@ const tile_types = {
 	"empty": preload("res://resources/tiles/empty.tres"),
 	"grass": preload("res://resources/tiles/grass.tres"),
 	"high_grass": preload("res://resources/tiles/high_grass.tres"),
+	"cracked_floor": preload("res://resources/tiles/cracked_floor.tres"),
 	"rock": preload("res://resources/tiles/rock.tres")
 }
 
