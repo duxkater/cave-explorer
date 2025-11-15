@@ -12,3 +12,4 @@ res://src/map/dungeon_generator.gd
 res://src/entities/entity.gd
 res://src/game.gd
 res://src/actions/melee.gd
+res://src/interface/damage_popup.gd

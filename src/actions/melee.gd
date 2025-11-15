@@ -29,7 +29,7 @@ func perform() -> bool:
 		entity.game.get_log_manager().add_message(attack_description, attack_color)
 	
 	melee_animation()
-	damage_popup_animation(damage)
+	DamagePopup.show(target, damage)
 	
 	return true
 
@@ -42,22 +42,3 @@ func melee_animation():
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(entity, "global_position", attack_pos, 0.1)
 	tween.tween_property(entity, "global_position", start_pos, 0.1)
-
-func damage_popup_animation(amount):
-	var label := Label.new()
-	label.text = str(amount)
-	label.modulate = Color(1, 0, 0)
-	label.z_index = 999
-	target.add_child(label)
-	label.global_position = target.global_position
-	var tween := target.create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(label, "global_position:y",
-		label.global_position.y - 20,
-		0.6
-	)
-	tween.tween_property(label, "modulate:a",
-		0.0,
-		0.6
-	)
-	tween.finished.connect(label.queue_free)
