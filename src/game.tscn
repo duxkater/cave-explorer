@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dgb6onrfxtuhk"]
+[gd_scene load_steps=23 format=3 uid="uid://dgb6onrfxtuhk"]
 
 [ext_resource type="Script" uid="uid://bwwak0n1b8noj" path="res://src/game.gd" id="1_7uq6d"]
 [ext_resource type="Script" uid="uid://idrcwqwvwr3s" path="res://src/map/map.gd" id="2_y2hwx"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://b2c6k35hvv8p" path="res://src/inputs/game_over_input_handler.gd" id="6_y2hwx"]
 [ext_resource type="Script" uid="uid://dfirky3dj86t3" path="res://src/inputs/history_viewer_input_handler.gd" id="7_qiocs"]
 [ext_resource type="FontFile" uid="uid://m45hvm3d0dl3" path="res://assets/fonts/Kenney Pixel.ttf" id="7_wqvko"]
+[ext_resource type="Script" uid="uid://6r56bb2lkrqj" path="res://src/interface/game_menu.gd" id="8_ns0lu"]
+[ext_resource type="LabelSettings" uid="uid://bvhpn7sqjfqps" path="res://resources/interface/log_label_settings.tres" id="9_tqu6b"]
 [ext_resource type="Script" uid="uid://db33b5i25wkpg" path="res://src/interface/game_over_screen.gd" id="12_qiocs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ns0lu"]
@@ -123,6 +125,110 @@ script = ExtResource("4_xdrfk")
 [node name="LogsList" type="VBoxContainer" parent="Interface/CanvasLayer/VBoxContainer/UIContainer/Logs/LogsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="GameMenu" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("8_ns0lu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabBar" type="TabBar" parent="GameMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("7_wqvko")
+theme_override_font_sizes/font_size = 32
+current_tab = 0
+tab_count = 3
+tab_0/title = "Stats"
+tab_1/title = "Inventory"
+tab_2/title = "Spells"
+
+[node name="PanelContainer" type="PanelContainer" parent="GameMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="StatsPanel" type="Panel" parent="GameMenu/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameMenu/VBoxContainer/PanelContainer/StatsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameMenu/VBoxContainer/PanelContainer/StatsPanel/VBoxContainer"]
+layout_mode = 2
+text = "Player Statistics"
+label_settings = ExtResource("9_tqu6b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameMenu/VBoxContainer/PanelContainer/StatsPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Container" type="Panel" parent="GameMenu/VBoxContainer/PanelContainer/StatsPanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HPLabel" type="Label" parent="GameMenu/VBoxContainer/PanelContainer/StatsPanel/VBoxContainer/HBoxContainer/Container"]
+layout_mode = 0
+offset_right = 1.0
+offset_bottom = 24.0
+label_settings = ExtResource("9_tqu6b")
+
+[node name="PowerLabel" type="Label" parent="GameMenu/VBoxContainer/PanelContainer/StatsPanel/VBoxContainer/HBoxContainer/Container"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 6.0
+offset_bottom = 24.0
+label_settings = ExtResource("9_tqu6b")
+
+[node name="DefenseLabel" type="Label" parent="GameMenu/VBoxContainer/PanelContainer/StatsPanel/VBoxContainer/HBoxContainer/Container"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 11.0
+offset_bottom = 24.0
+label_settings = ExtResource("9_tqu6b")
+
+[node name="InventoryPanel" type="Panel" parent="GameMenu/VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameMenu/VBoxContainer/PanelContainer/InventoryPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameMenu/VBoxContainer/PanelContainer/InventoryPanel/VBoxContainer"]
+layout_mode = 2
+text = "INVENTORY"
+label_settings = ExtResource("9_tqu6b")
+
+[node name="SpellsPanel" type="Panel" parent="GameMenu/VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameMenu/VBoxContainer/PanelContainer/SpellsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameMenu/VBoxContainer/PanelContainer/SpellsPanel/VBoxContainer"]
+layout_mode = 2
+text = "SPELLS"
+label_settings = ExtResource("9_tqu6b")
 
 [node name="InputHandler" type="Node" parent="."]
 unique_name_in_owner = true
@@ -237,6 +343,7 @@ theme_override_font_sizes/font_size = 32
 text = "Back to main menu"
 
 [connection signal="entities_focussed" from="Map/MouseoverChecker" to="Interface/CanvasLayer/VBoxContainer/UIContainer/Stats/VBoxContainer/MouseoverLabel" method="set_text"]
+[connection signal="tab_changed" from="GameMenu/VBoxContainer/TabBar" to="GameMenu" method="_on_tab_bar_tab_changed"]
 [connection signal="button_down" from="MainMenu/VBoxContainer/CenterContainer/VBoxContainer/NewGameButton" to="MainMenu" method="_on_new_game_button_button_down"]
 [connection signal="button_down" from="MainMenu/VBoxContainer/CenterContainer/VBoxContainer/QuitButton" to="MainMenu" method="_on_quit_button_button_down"]
 [connection signal="button_down" from="GameOverScreen/VBoxContainer/CenterContainer/VBoxContainer/BackTOMainMenu" to="GameOverScreen" method="_on_back_to_main_menu_button_down"]

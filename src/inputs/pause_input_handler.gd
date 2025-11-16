@@ -3,6 +3,7 @@ extends Node
 
 @onready var map: Map = %Map
 @onready var mainMenu = %MainMenu
+@onready var game_menu = %GameMenu
 
 func enter() -> void:
 	pass

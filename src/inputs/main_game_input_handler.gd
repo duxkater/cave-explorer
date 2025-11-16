@@ -29,5 +29,9 @@ func get_action(player: Entity) -> Action:
 	
 	if Input.is_action_just_pressed("quit"):
 		mainMenu.visible = !mainMenu.visible
+	
+	if Input.is_action_just_pressed('toggle_menu'):
+		game_menu.tab_bar.set_current_tab(0)
+		game_menu.visible = !game_menu.visible
 
 	return action
