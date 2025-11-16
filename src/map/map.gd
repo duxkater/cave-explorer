@@ -85,3 +85,10 @@ func update_fov(player_position: Vector2i) -> void:
 	
 	for entity in entities.get_children():
 		entity.visible = get_tile(entity.grid_position).is_in_view
+
+func get_items() -> Array[Entity]:
+	var items: Array[Entity] = []
+	for entity in entities.get_children():
+		if entity.consumable_component != null:
+			items.append(entity)
+	return items

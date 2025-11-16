@@ -108,6 +108,7 @@ func _tunnel_vertical(x: int, y_start: int, y_end: int) -> void:
 
 func placeEntities(room: Rect2i):
 	var number_of_monsters: int = _rng.randi_range(0, max_monsters_per_room)
+	var number_of_items: int = _rng.randi_range(0, max_items_per_room)
 	
 	for _i in number_of_monsters:
 		var x: int = _rng.randi_range(room.position.x + 1, room.end.x - 1)
@@ -123,6 +124,23 @@ func placeEntities(room: Rect2i):
 		if can_place:
 			var new_entity: Entity
 			new_entity = Entity.new(map, game, "goblin", new_entity_position)
+			entities.append(new_entity)
+	
+	for _i in number_of_items:
+		var x: int = _rng.randi_range(room.position.x + 1, room.end.x - 1)
+		var y: int = _rng.randi_range(room.position.y + 1, room.end.y - 1)
+		var new_entity_position := Vector2i(x, y)
+		
+		var can_place = true
+		for entity in entities:
+			if entity && entity.grid_position == new_entity_position:
+				can_place = false
+				break
+		
+		if can_place:
+			var item_chance: float = _rng.randf()
+			var new_entity: Entity
+			new_entity = Entity.new(map, game, "life_potion", new_entity_position)
 			entities.append(new_entity)
 
 func grid_to_index(grid_position: Vector2i) -> int:

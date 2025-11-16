@@ -23,6 +23,9 @@ func get_action(player: Entity) -> Action:
 		if Input.is_action_just_pressed(direction):
 			var offset: Vector2i = directions[direction]
 			action = BumpAction.new(player, offset.x, offset.y)
+			
+	if Input.is_action_just_pressed("get"):
+		action = PickupAction.new(player)
 	
 	if Input.is_action_just_pressed("quit"):
 		mainMenu.visible = !mainMenu.visible

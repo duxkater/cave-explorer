@@ -23,4 +23,5 @@ texture = SubResource("AtlasTexture_1rjkp")
 type = 2
 fighter_definition = SubResource("Resource_2hacj")
 ai_type = 1
+inventory_capacity = 10
 metadata/_custom_type_script = "uid://cawn45t6crgsm"

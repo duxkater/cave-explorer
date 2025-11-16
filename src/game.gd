@@ -23,7 +23,7 @@ func new_game():
 	log_manager.add_message("Hello and welcome, adventurer, to yet another dungeon!", LoggerColors.WELCOME_TEXT)
 
 func _physics_process(_delta: float) -> void:
-	var action: Action = await input_handler.get_action(player)
+	var action: Action = input_handler.get_action(player)
 	if action:
 		if action.perform():
 			_handle_enemy_turns()

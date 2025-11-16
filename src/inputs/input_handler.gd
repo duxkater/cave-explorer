@@ -18,7 +18,7 @@ func _ready() -> void:
 	transition_to(start_input_handler)
 
 func get_action(player: Entity) -> Action:
-	return await current_input_handler.get_action(player)
+	return current_input_handler.get_action(player)
 
 func transition_to(input_handler: InputHandlers) -> void:
 	if current_input_handler == input_handler_nodes[InputHandlers.GAME_OVER]:
